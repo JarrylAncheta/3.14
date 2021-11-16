@@ -1,64 +1,59 @@
-let array=[];
-let backgroundColor =200;
+let array = [];
+let noiseOffset = 0.0;
+let strokeWidth = 5
 
-function setup(){
+function setup() {
   createCanvas(windowWidth, windowHeight);
-  // background(backgroundColor);
-  strokeWeight(3);
-  noFill();
+  background(140, 190, 210);
+
   drawGrid();
+//  strokeWeight(5);
+  noFill();
 
 }
-function draw(){
-  if (mouseIsPressed){
-      // background(backgroundColor);
-      backgroundColor -=2;
-      // line(mouseX, mouseY, pmouseX,pmouseY);
-      array.push([mouseX, mouseY]);
-      
+
+function draw() {
+  //background(1, 50, 32);
+
+  background(0);
+  strokeWeight(strokeWidth)
+
+  noiseOffset += 0.05 //same as noiseOffset=noiseOffset+0.01
+  strokeWidth = noise(noiseOffset) * 10;
+
+  line(mouseX, mouseY, pmouseX, pmouseY);
+  //  array.push([mouseX, mouseY]);
+
+}
+
+
+function keyTyped() {
+
+  if (key === 's') {
+    saveCanvas('fileName', 'jpg')
+  } else if (key === 'c') {
+    clear();
   }
-  
-
-}
-function keyTyped(){
-  if (key === 's'){
-    saveCanvas('fileName','png');
-  }else if (key ==='d'){
-    background(200);
-    beginShape();
-    for (let i=0; i< array.length; i++){
-      // line(array[i][0],array[i][1],array[i+1][0],array[i+1][1] )
-      curveVertex(array[i][0], array[i][1])
-    } 
-  endShape();
-//   }else if ( key === 'c'){
-//   clear();
-//   background(200);
-
-//   array.length = 0;  
-// }
+  else if (key === 'd'){
+    display();
+  }
   return false;
 }
-}
-function mousePressed(){
-  array = [];
-  backgroundColor = 255;
-}
-function drawGrid(){
+
+function drawGrid() {
   numCells = 20;
-  fillColor= 255;
-  strokeWeight(0);
-  for ( let i = 0; i<= width; i+=width/numCells){
-    for ( let j = 0; j<= height; j+= height/numCells){
-      if (fillColor === 255){
-        fillColor = 200
-      } else{
-        fillColor =255;
-      }
-      fill(fillColor); 
-      rect(i, j, width/numCells, height/numCells);
+  fillColor = 255;
+
+  for (let i = 0; i <= width; i += width / numCells) {
+    for (let j = 0; j <= height; j += height / numCells) {
+if (fillColor === 255){
+  fillColor = 200;
+}else{
+  fillColor = 255;
+}
+    fill(fillColor)
+;      rect(i, j, width / numCells, height / numCells)
+
     }
-    
   }
 }
-strokeWeight(5);
