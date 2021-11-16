@@ -1,5 +1,5 @@
 let array =[];
-let backgroundColor = 255;
+let backgroundColor = 200;
 
 function setup() {
   createCanvas(600, 600);
@@ -13,18 +13,13 @@ function draw() {
 
 
   if (mouseIsPressed){
-    backgroundColor = -20;
+    backgroundColor = -5;
     background(backgroundColor);
 
       array.push([mouseX, mouseY]);
 }
 
-function mousePressed (){
-  array = [];
-  backgroundColor = 255;
-}
-
-  function keyTyped () {
+function keyTyped () {
   if (key === 's'){
 saveCanvas ('fileName' , 'png');
   } else if (key === 'd'){
@@ -41,14 +36,19 @@ endShape ();
 
 }
 
+function mousePressed (){
+  array = [];
+  backgroundColor = 255;
+}
+
 function drawGrid(){
-  numCells = 10;
-fillColor = 80;
+  numCells = 20;
+fillColor = 255;
     noStroke ();
   for (let i = 0; i <=width; i += width/ numCells){
   for (let j = 0; j <=width; j += width/ numCells){
     if (fillColor === 255){
-      fillColor = 150;
+      fillColor = 200;
     } else {
       fillColor = 255;
     }
