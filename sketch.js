@@ -3,7 +3,7 @@ let strokeWidth = 10
 let noiseOffset = 0.0;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth, windowHeight);
   background(120, 190, 255);
 
   drawGrid();
