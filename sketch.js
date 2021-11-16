@@ -42,7 +42,7 @@ function keyTyped() {
 }
 
 function drawGrid() {
-  numCells = 30;
+  numCells = 20;
   fillColor = 255;
 
   for (let i = 0; i <= width; i += width / numCells) {
