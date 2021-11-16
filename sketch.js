@@ -4,7 +4,7 @@ let strokeWidth = 5
 //let backgroundColor = 200;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth, windowHeight);
   background(216, 249, 237);
 
   drawGrid();
@@ -14,17 +14,14 @@ function setup() {
 }
 
 function draw() {
-  //background(1, 50, 32);
+  //background(4, 22, 57);
 
-  background(216, 249, 237, 5);
+  background(190, 421, 182, 7);
   strokeWeight(strokeWidth)
 
   noiseOffset += 0.05 //same as noiseOffset=noiseOffset+0.01
   strokeWidth = noise(noiseOffset) * 10;
 
-//if (mouseIsPressed){
-///  stroke(map(mouseX, 0, 600, 0, 255, true))
-  //  line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
   line(mouseX, mouseY, pmouseX, pmouseY);
   //  array.push([mouseX, mouseY]);
 
@@ -45,7 +42,7 @@ function keyTyped() {
 }
 
 function drawGrid() {
-  numCells = 20;
+  numCells = 30;
   fillColor = 255;
 
   for (let i = 0; i <= width; i += width / numCells) {
