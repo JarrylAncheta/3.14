@@ -1,24 +1,22 @@
 let array = [];
+let strokeWidth = 10
 let noiseOffset = 0.0;
-let strokeWidth = 5
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  background(140, 190, 210);
+  createCanvas(600, 600);
+  background(120, 190, 255);
 
   drawGrid();
-//  strokeWeight(5);
   noFill();
 
 }
 
 function draw() {
-  //background(1, 50, 32);
 
-  background(190, 260, 100);
+  background(330, 249, 220, 1);
   strokeWeight(strokeWidth)
 
-  noiseOffset += 0.05 //same as noiseOffset=noiseOffset+0.01
+  noiseOffset += 0.05
   strokeWidth = noise(noiseOffset) * 10;
 
   line(mouseX, mouseY, pmouseX, pmouseY);
@@ -41,13 +39,13 @@ function keyTyped() {
 }
 
 function drawGrid() {
-  numCells = 20;
-  fillColor = 255;
+  numCells = 35;
+  fillColor = 0;
 
   for (let i = 0; i <= width; i += width / numCells) {
     for (let j = 0; j <= height; j += height / numCells) {
 if (fillColor === 255){
-  fillColor = 200;
+  fillColor = 255;
 }else{
   fillColor = 255;
 }
